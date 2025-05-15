@@ -19,7 +19,9 @@ try {
     echo "<h1>People Table</h1>";
     echo "<table border='1'><tr><th>ID</th><th>Name</th></tr>";
     foreach ($stmt as $row) {
-        echo "<tr><td>" . htmlspecialchars($row['id']) . "</td><td>" . htmlspecialchars($row['name']) . "</td></tr>";
+        $id = htmlspecialchars($row['id']);
+        $name = htmlspecialchars($row['name']);
+        echo "<tr><td>$id</td><td><a href='person.php?id=$id'>$name</a></td></tr>";
     }
     echo "</table>";
 } catch (PDOException $e) {
